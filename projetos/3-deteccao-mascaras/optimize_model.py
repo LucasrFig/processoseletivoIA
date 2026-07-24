@@ -1,5 +1,6 @@
+import os
+import shutil
 from ultralytics import YOLO
-
 # ---------------------------------------------------------------------------
 # Projeto 3 — Otimização do Modelo (Exportação para Edge)
 #
@@ -11,7 +12,16 @@ from ultralytics import YOLO
 
 # insira seu código aqui
 
-# Dica de estrutura (não é obrigatório seguir exatamente assim):
-#
-# model = YOLO("model.pt")
-# model.export(format="tflite", imgsz=...)
+# 1. Carrega o modelo que você acabou de treinar
+model = YOLO("model.pt")
+
+# 2. Exporta o modelo para o formato TFLite
+print("Iniciando a otimização para TFLite...")
+exported_file_path = model.export(format="tflite")
+
+# 3. Garante que o arquivo final se chame exatamente "model.tflite" na raiz
+if os.path.exists(exported_file_path):
+    shutil.copy(exported_file_path, "model.tflite")
+    print("O arquivo model.tflite foi gerado na raiz do projeto.")
+else:
+    print("Erro: Não foi possível localizar o arquivo exportado.")
