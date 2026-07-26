@@ -5,8 +5,8 @@ from ultralytics import YOLO
 
 model = YOLO("model.pt")
 
-
-print("Iniciando a otimização para TFLite... Esta versão será bem mais rápida!")
+# Otimização do modelo model.pt
+print("Iniciando a otimização para TFLite...")
 exported_file_path = model.export(
     format="litert",
     imgsz=640,
@@ -16,6 +16,6 @@ exported_file_path = model.export(
 
 if os.path.exists(exported_file_path):
     shutil.copy(exported_file_path, "model.tflite")
-    print("Sucesso! O arquivo model.tflite foi gerado na raiz do projeto.")
+    print("Pronto! O arquivo model.tflite foi gerado na raiz do projeto.")
 else:
     print("Erro: Não foi possível localizar o arquivo exportado.")

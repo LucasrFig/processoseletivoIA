@@ -6,12 +6,12 @@ from ultralytics import YOLO
 
 model = YOLO("yolo11n.pt")
 
-print("Iniciando o treinamento. Isso pode levar algum tempo na CPU...")
+print("Iniciando o treinamento em CPU:")
 results = model.train(
     data="dataset/data.yaml",
-    epochs=1,
-    imgsz=640, 
-    batch=4,   
+    epochs=30,
+    imgsz=640,
+    batch=4,
     device="cpu",
     cls=0.8,
     cls_pw=0.5
