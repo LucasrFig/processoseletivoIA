@@ -2,7 +2,6 @@ import shutil
 
 from ultralytics import YOLO
 
-
 # insira seu código aqui
 
 model = YOLO("yolo11n.pt")
@@ -13,7 +12,9 @@ results = model.train(
     epochs=1,
     imgsz=640, 
     batch=4,   
-    device="cpu"
+    device="cpu",
+    cls=0.8,
+    cls_pw=0.5
 )
 
 best_weights_path = results.save_dir / "weights" / "best.pt"
