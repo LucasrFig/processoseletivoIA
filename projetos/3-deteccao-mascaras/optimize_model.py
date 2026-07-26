@@ -8,8 +8,10 @@ model = YOLO("model.pt")
 
 print("Iniciando a otimização para TFLite... Esta versão será bem mais rápida!")
 exported_file_path = model.export(
-    format="litert", 
-    imgsz=640
+    format="litert",
+    imgsz=640,
+    int8=True,
+    data="dataset/data.yaml"
 )
 
 if os.path.exists(exported_file_path):
