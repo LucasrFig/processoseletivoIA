@@ -52,10 +52,9 @@ possível, e o tamanho dos arquivos `model.pt` e `model.tflite`.
 
 ### 5️⃣ Comentários Adicionais (Opcional)
 
+As principais dificuldades encontradas ao desenvolver o projeto foram relacionadas as limitações de hardware de meu próprio computador. Maior parte das coisas precisei ir atrás de um PC emprestado e de inúmeras tentativas para funcionar. Por exemplo, meu `optimize_model.py` não conseguia rodar dentro do ambiente docker linux de minha máquina de jeito nenhum (Ele era sobrecarregado e a conexão encerrada), perdi bastante tempo procurando uma solução, a única saída foi utilizar o PC de um amigo próximo para rodar o Script sem dificuldades.
 
-
-Dificuldades encontradas, decisões técnicas importantes, limitações do modelo
-(ex: desempenho na classe minoritária), aprendizados durante o desafio.
+Aprendi bastante, tive que utilizar ferramentas que nunca tinha entrado em contato de forma muito aprofundada, como Docker e conteinerização. Pude entender mais sobre criação de um ambiente de desenvolvimento e as dificuldades quanto a compatibilidade entre as dependências do ambiente. Além disso, pricipalmente, consegui entender melhor como funciona o proesso de treinamento de uma IA e como os parâmetros impactam no desempenho dos modelos gerados durante o processo.
 
 ### 6️⃣ Exemplo de Inferência
 
