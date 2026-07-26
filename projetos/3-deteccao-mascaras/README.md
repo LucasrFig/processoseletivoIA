@@ -31,8 +31,8 @@ Lista das bibliotecas utilizadas no ambiente local:
 ### 3️⃣ Técnica de Otimização do Modelo
 A otimização do modelo foi executada através do arquivo `optimize_model.py` a partir do arquivo `model.pt` gerado pelo `train_model.py`. A função utilizada foi a `model.export()` que converte a arquitetura do modelo. Os parâmetros usados em `model.export()` foram:
 
-- **format = "litert":** Define que o formato será TensorFlow Lite (LiteRT)
-- **imgsz = 640 :** Faz o modelo esperar por imagens de 640 x 640 pixels para inferência
+- **format = "litert":** Define que o formato será TensorFlow Lite (LiteRT).
+- **imgsz = 640 :** Faz o modelo esperar por imagens de 640 x 640 pixels para inferência.
 - **int8 = True :** O modelo é treinado ponto flutuante de 32 bits, ele simplifica o modelo em inteiros de 8 bits, diminuindo bastante o tamanho do arquivo.
 - **data = "dataset/data.yaml" :** Como a opção **int8 = True** foi escolhida, serve para a função export encontrar o caminho das imagens que vão ser utilizadas para calibrar a conversão para int8.
 
