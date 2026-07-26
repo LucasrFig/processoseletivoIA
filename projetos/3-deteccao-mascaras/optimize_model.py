@@ -2,7 +2,6 @@ import os
 import shutil
 from ultralytics import YOLO
 
-
 model = YOLO("model.pt")
 
 # Otimização do modelo model.pt
