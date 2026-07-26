@@ -18,7 +18,7 @@ from ultralytics import YOLO
 #      conferir visualmente as predições (não precisa ser commitada)
 # ---------------------------------------------------------------------------
 
-N_SAMPLES = 50
+N_SAMPLES = 170
 CLASS_NAMES = ["with_mask", "without_mask", "mask_weared_incorrect"]
 
 
@@ -35,12 +35,14 @@ def main():
     # 2. Selecionar imagens do conjunto de validação
     val_dir = os.path.join(script_dir, "dataset", "images", "val")
     all_images = sorted(
-        [f for f in os.listdir(val_dir) if f.lower().endswith((".jpg", ".jpeg", ".png"))]
+        [f for f in os.listdir(val_dir) if f.lower().endswith(
+            (".jpg", ".jpeg", ".png"))]
     )
     sample_images = all_images[:N_SAMPLES]
     sample_paths = [os.path.join(val_dir, f) for f in sample_images]
 
-    print(f"\nRodando inferência em {len(sample_paths)} amostras usando model.tflite:\n")
+    print(
+        f"\nRodando inferência em {len(sample_paths)} amostras usando model.tflite:\n")
     print(f"{'Imagem':<35} {'Detecções':>10}  Detalhes")
     print("-" * 70)
 
@@ -66,7 +68,8 @@ def main():
             class_ids = result.boxes.cls.tolist()
             class_counts = {}
             for cid in class_ids:
-                cname = CLASS_NAMES[int(cid)] if int(cid) < len(CLASS_NAMES) else str(int(cid))
+                cname = CLASS_NAMES[int(cid)] if int(
+                    cid) < len(CLASS_NAMES) else str(int(cid))
                 class_counts[cname] = class_counts.get(cname, 0) + 1
             details = ", ".join(f"{v}x {k}" for k, v in class_counts.items())
         else:
